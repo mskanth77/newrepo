@@ -1,0 +1,33 @@
+---
+- name: creating my frist play book
+  hosts: nodes
+  become: true
+  tasks:
+   - name: creating user 
+     user:
+      name: Capgemini
+      state: present
+   - name: creating group
+     group:
+      name: Training
+      state: present
+   - name: creating file with full permission
+     file:
+      path: /tmp/file1
+      state: touch
+      mode: 0777
+   - name: creating a directory
+     file:
+      path: /tmp/cap
+      state: directory
+   - name: installing package
+     apt:
+      name: ntp
+      state: present
+     
+
+
+ 
+
+
+
